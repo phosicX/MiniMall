@@ -58,7 +58,7 @@ onMounted(() => { store.dispatch('cart/initCart') })
       <li 
         v-for="(item, index) in cartItems"
         :key="item.id"
-        :style="`animation-delay: ${ Math.floor((index + 2) / 2) * 0.1 }s;`"
+        :style="`animation-delay: ${ index * 0.1 }s;`"
         class="cart-item"
       >
         <div class="checkbox-wrapper">
@@ -97,7 +97,7 @@ onMounted(() => { store.dispatch('cart/initCart') })
       <button @click="router.push('/classify')">去逛逛</button>
     </div>
 
-    <div class="cart-footer" v-if="!isCartEmpty">
+    <div v-if="!isCartEmpty" class="cart-footer" >
       <label class="checkbox-label">
         <input 
           type="checkbox" 
@@ -133,7 +133,7 @@ onMounted(() => { store.dispatch('cart/initCart') })
 h1 { font-size: 18px; }
 
 ul { 
-  padding: 12px;
+  padding: 20px 12px;
   padding-bottom: 120px;
   display: flex;
   flex-direction: column;

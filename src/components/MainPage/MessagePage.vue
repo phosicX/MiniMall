@@ -52,7 +52,7 @@ onMounted(() => { if (!store.getters['messages/isLoaded']) { store.dispatch('mes
         v-for="(conv, index) in conversations"
         :key="conv.id"
         class="message-item"
-        :style="`animation-delay: ${ Math.floor((index + 2) / 2) * 0.1 }s;`"
+        :style="`animation-delay: ${ index * 0.1 }s;`"
         @click="openConversation(conv)"
       >
         <div v-if="conv.type === 'assistant'" class="assistant-icon"></div>

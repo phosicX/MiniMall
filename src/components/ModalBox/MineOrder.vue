@@ -28,16 +28,12 @@ onMounted(() => { store.dispatch('orders/initOrders') })
       <button class="filter-btn"><div class="filter-icon"></div></button>
     </header>
 
-    <div v-if="orders.length === 0" class="empty-orders">
-      <p>暂无订单记录</p>
-      <button @click="router.push('/classify')">去逛逛</button>
-    </div>
-
-    <div v-else class="orders-list">
+    <div v-if="orders && orders.length > 0" class="orders-list">
       <div 
-        v-for="order in orders" 
+        v-for="(order, index) in orders" 
         :key="order.id" 
         class="order-card"
+        :style="`animation-delay: ${ index * 0.1 }s;`"
       >
         <div class="order-header">
           <span class="order-date">{{ formatDate(order.createTime) }}</span>
@@ -68,6 +64,11 @@ onMounted(() => { store.dispatch('orders/initOrders') })
           </div>
         </div>
       </div>
+    </div>
+
+    <div v-else class="empty-orders">
+      <p>暂无订单记录</p>
+      <button @click="router.push('/classify')">去逛逛</button>
     </div>
   </div>
 </template>
@@ -102,7 +103,7 @@ h1 { font-size: 18px; }
 }
 
 .orders-list {
-  padding: 12px;
+  padding: 20px 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -113,6 +114,8 @@ h1 { font-size: 18px; }
   border-radius: 5px;
   padding: 12px;
   box-shadow: var(--shadow-sm) var(--shadow-color);
+  opacity: 0;
+  animation: fadeIn var(--duration-def) forwards;
 }
 
 .order-header {
@@ -120,7 +123,7 @@ h1 { font-size: 18px; }
   justify-content: space-between;
   align-items: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--btn-border);
+  border-bottom: 1px solid var(--card-border);
   font-size: 12px;
 }
 
@@ -179,7 +182,7 @@ h1 { font-size: 18px; }
   display: flex;
   justify-content: flex-end;
   padding-top: 10px;
-  border-top: 1px solid var(--btn-border);
+  border-top: 1px solid var(--card-border);
 }
 
 .order-total {

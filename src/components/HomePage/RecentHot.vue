@@ -40,7 +40,7 @@ h2 {
   font-size: 20px;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .recent-hot ul {

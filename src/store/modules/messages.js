@@ -5,10 +5,8 @@ const state = {
   conversationsLoaded: false
 }
 
-// 生成唯一ID
 const generateId = () => Date.now() + '-' + Math.random().toString(36).substr(2, 9)
 
-// 获取本地存储的key
 const getStorageKey = (userId) => `messages_${userId || 'guest'}`
 
 const loadMessagesFromStorage = (userId) => {
@@ -24,6 +22,17 @@ const loadMessagesFromStorage = (userId) => {
 const saveMessagesToStorage = (userId, conversations) => {
   const key = getStorageKey(userId)
   localStorage.setItem(key, JSON.stringify(conversations))
+}
+
+const getRandomWelcomeMessage = () => {
+  const messages = [
+    '欢迎回来！今日有新品上架，快来看看吧~',
+    '欢迎回来！限时折扣正在进行中，不要错过哦！',
+    '欢迎回来！为你推荐了几款好物~',
+    '欢迎回来！最近有什么想买的吗？',
+    '欢迎回来！祝您购物愉快~'
+  ]
+  return messages[Math.floor(Math.random() * messages.length)]
 }
 
 const mutations = {
@@ -220,17 +229,6 @@ const actions = {
   
   // 清除用户消息（登出时）
   clearUserMessages({ commit }) { commit('CLEAR_USER_MESSAGES') }
-}
-
-const getRandomWelcomeMessage = () => {
-  const messages = [
-    '欢迎回来！今日有新品上架，快来看看吧~',
-    '欢迎回来！限时折扣正在进行中，不要错过哦！',
-    '欢迎回来！为你推荐了几款好物~',
-    '欢迎回来！最近有什么想买的吗？',
-    '欢迎回来！祝您购物愉快~'
-  ]
-  return messages[Math.floor(Math.random() * messages.length)]
 }
 
 const getters = {

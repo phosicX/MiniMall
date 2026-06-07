@@ -42,7 +42,7 @@ const navItems = [
   filter: brightness(0) saturate(100%) invert(43%) sepia(34%) saturate(7002%) hue-rotate(202deg) brightness(99%) contrast(95%);
 }
 
-.web-nav-item.active .nav-icon { animation: slightBounce var(--duration-def);}
+.web-nav-item.active .nav-icon { animation: slightBounce var(--duration-def); }
 
 .nav-icon {
 	width: 24px;

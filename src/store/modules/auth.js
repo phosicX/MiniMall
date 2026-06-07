@@ -49,7 +49,6 @@ const actions = {
       users.push(newUser)
       localStorage.setItem('users', JSON.stringify(users))
         
-      // 自动登录
       const { password: _, ...userWithoutPassword } = newUser
       commit('SET_USER', userWithoutPassword)
       dispatch('cart/initCart', null, { root: true })  

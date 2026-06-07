@@ -73,7 +73,7 @@ const activities = ref([
   gap: 5px;
 }
 
-.title-container h1 { font-size: 18px;}
+.title-container h1 { font-size: 18px; }
 
 .logo-icon {
   width: 20px;

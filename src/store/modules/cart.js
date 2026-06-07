@@ -35,6 +35,9 @@ const mutations = {
     if (item && quantity > 0) { 
       item.quantity = quantity
       state.items = [...state.items]
+      if (!state.selectedItems.includes(productId)) {
+        state.selectedItems = [...state.selectedItems, productId]
+      }
     } else if (item && quantity <= 0) { 
       state.items = state.items.filter(item => item.id !== productId)
       state.selectedItems = state.selectedItems.filter(id => id !== productId)

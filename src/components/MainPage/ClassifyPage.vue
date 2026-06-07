@@ -96,7 +96,7 @@ onMounted(() => {
       const genre = Object.keys(categoryRefs.value).find(
         key => categoryRefs.value[key] === firstVisible
       )
-      if (genre && genre !== activeGenre.value) { activeGenre.value = genre}
+      if (genre && genre !== activeGenre.value) { activeGenre.value = genre }
     }
   }, {
     threshold: 0.3,

@@ -28,7 +28,6 @@ const actions = {
     commit('SET_USER_ID', userId)
   },
   
-  // 创建订单（结算时调用）
   createOrder({ commit }, { items, total }) {
     const order = {
       id: Date.now(),

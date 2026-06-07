@@ -170,6 +170,7 @@ const buyNow = () => {
 .operate-left {
   box-shadow: var(--shadow-sm) var(--shadow-color);
   border-radius: 0 5px 0 0;
+  background-color: var(--bg-color);
 }
 
 .operate-right {

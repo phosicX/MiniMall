@@ -26,7 +26,6 @@ export default {
   },
   
   actions: {
-    // 执行搜索
     async performSearch({ commit, rootState }, keyword) {
       if (!keyword.trim()) {
         commit('SET_RESULTS', [])
@@ -36,7 +35,6 @@ export default {
       commit('SET_KEYWORD', keyword)
       commit('SET_SEARCHING', true)
       
-      // 模拟异步搜索
       return new Promise((resolve) => {
         setTimeout(() => {
           const products = rootState.products?.items || []
@@ -50,7 +48,6 @@ export default {
       })
     },
     
-    // 清空搜索
     clearSearch({ commit }) {
       commit('CLEAR_SEARCH')
     }

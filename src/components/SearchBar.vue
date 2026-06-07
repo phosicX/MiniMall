@@ -40,7 +40,7 @@ if (route.path === '/search') {
       <div class="search-icon"></div>
     </label>
     <input 
-      type="text" 
+      type="text"
       id="search" 
       v-model="searchKeyword"
       @input="updateKeyword(searchKeyword)"
